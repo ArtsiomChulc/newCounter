@@ -1,0 +1,45 @@
+.wrapCounter {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.Counter {
+  text-align: center;
+  padding: 25px 15px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 40px;
+  width: 400px;
+  min-height: 300px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: aqua;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrapBTN {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  align-self: center;
+  background-color: bisque;
+  height: 60px;
+}
+
+.wrapBTN button {
+  align-self: center;
+  height: 30px;
+}
+
+
+
