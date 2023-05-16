@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import s from './App.module.css';
 import {Display} from "./components/Display/Display";
 import {InputMax} from "./components/InputMax/InputMax";
 import {InputStart} from "./components/InputMin/InputStart";
 import {SuperButton} from "./components/SuperButton/SuperButton";
+import {incrReducer} from "./state/reducer";
 
 
-function App() {
+function AppWithReducers() {
 
     let [valueInput, setValueInput] = useState<string>('')
     const [valueInputStart, setValueInputStart] = useState<string>('')
@@ -17,7 +18,8 @@ function App() {
         if (newCountStartString) {
             setValueInputStart(JSON.parse(newCountStartString))
             let newValue = +JSON.parse(newCountStartString)
-            setCount(newValue)
+            // setCount(newValue)
+            dispatchCount({type: "RESET", valueInputStart: newValue})
         }
     }, [])
 
@@ -29,21 +31,26 @@ function App() {
 
     let newCountString = localStorage.getItem('inputMax')
 
-    let [count, setCount] = useState<number>(0)
+    // let [count, setCount] = useState(0)
+    let [count, dispatchCount] = useReducer(incrReducer, 0)
 
     const countIncrHandlerCB = () => {
-        setCount(++count)
+        // setCount(count++)
+        dispatchCount({type: "INCR-VALUE-INPUT"})
     }
 
     const countResetHandlerCB = () => {
-        setCount(+valueInputStart)
+        let newValue = +valueInputStart
+        dispatchCount({type: "RESET", valueInputStart: newValue})
     }
 
     const setSettingsCount = () => {
         setIsHidden(!isHidden)
         localStorage.setItem('setValueInputStart', JSON.stringify(valueInputStart))
         localStorage.setItem("inputMax", JSON.stringify(valueInput))
-        setCount(+valueInputStart)
+        let newValue = +valueInputStart
+        dispatchCount({type: "RESET", valueInputStart: newValue})
+        // setCount(+valueInputStart)
     }
 
     return (
@@ -114,4 +121,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppWithReducers;
