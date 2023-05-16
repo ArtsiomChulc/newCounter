@@ -1,10 +1,10 @@
 import {combineReducers, createStore} from "redux";
-import {countReducer} from "./countReducer";
+import {generalReducer} from "./generalReducer";
 
 
 
 const rootReducer = combineReducers({
-    count: countReducer
+    count: generalReducer
 })
 
 // type RootTypeState = {

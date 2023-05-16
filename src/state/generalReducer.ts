@@ -1,4 +1,3 @@
-
 export type initialStateType = {
     count: number
     valueInputStart: number
@@ -23,32 +22,31 @@ type IsHiddenAT = ReturnType<typeof IsHiddenAC>
 type ActionType = IncrAT | ResetAT | IsHiddenAT
 
 
-export const countReducer = (state:initialStateType = initialState, action: ActionType): initialStateType => {
-    if (action.type === "INCR-VALUE-INPUT") {
+export const generalReducer = (state: initialStateType = initialState, action: ActionType): initialStateType => {
+    switch (action.type) {
+        case "INCR-VALUE-INPUT":
             return {
                 ...state, count: state.count + 1
             }
-    }
-    if (action.type === "RESET") {
-        return {
-            ...state, count: action.valueInputStart
-        }
-    }
-    if (action.type === "IS-HIDDEN") {
-        return {
-            ...state,
-            isHidden: !state.isHidden
-        }
-    } else {
-        return state
+        case "RESET":
+            return {
+                ...state, count: action.valueInputStart
+            }
+        case "IS-HIDDEN":
+            return {
+                ...state,
+                isHidden: !state.isHidden
+            }
+        default:
+            return state
     }
 }
 
 export const IncrAC = () => ({
-  type: "INCR-VALUE-INPUT"
+    type: "INCR-VALUE-INPUT"
 } as const)
 
-export const ResetAC = (valueInputStart: number)  => {
+export const ResetAC = (valueInputStart: number) => {
     return {
         type: "RESET",
         valueInputStart

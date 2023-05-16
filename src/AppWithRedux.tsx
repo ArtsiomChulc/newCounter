@@ -4,7 +4,7 @@ import {Display} from "./components/Display/Display";
 import {InputMax} from "./components/InputMax/InputMax";
 import {InputStart} from "./components/InputMin/InputStart";
 import {SuperButton} from "./components/SuperButton/SuperButton";
-import {IncrAC, IsHiddenAC, ResetAC} from "./state/countReducer";
+import {IncrAC, IsHiddenAC, ResetAC} from "./state/generalReducer";
 // import {IsHiddenAC, isHiddenReducer} from "./state/isHiddenReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootTypeState} from "./state/store";
