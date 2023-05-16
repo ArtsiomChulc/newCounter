@@ -12,7 +12,6 @@ type DisplayPropsType = {
 export const Display = (props: DisplayPropsType) => {
     const { count, newCountString } = props
 
-
     let valueInputCount = newCountString ? +JSON.parse(newCountString) : ''
 
     const styleCount = `${s.count} ${count === valueInputCount ? s.errorCount : ''}`
