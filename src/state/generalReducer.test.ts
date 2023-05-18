@@ -4,7 +4,6 @@ test('incr reducer should increment count', () => {
     const startState:initialStateType =  {
         count: 0,
         valueInputStart: 0,
-        valueInputMax: 0,
         isHidden: true
     }
 
@@ -18,7 +17,6 @@ test('count should be equal valueStart', () => {
     const startState:initialStateType =  {
         count: 0,
         valueInputStart: 0,
-        valueInputMax: 0,
         isHidden: true
     }
 
@@ -32,7 +30,6 @@ test('isHidden should be switch to the opposite', () => {
     const startState:initialStateType =  {
         count: 0,
         valueInputStart: 0,
-        valueInputMax: 0,
         isHidden: true
     }
 

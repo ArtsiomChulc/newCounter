@@ -5,7 +5,6 @@ import {InputMax} from "./components/InputMax/InputMax";
 import {InputStart} from "./components/InputMin/InputStart";
 import {SuperButton} from "./components/SuperButton/SuperButton";
 import {IncrAC, IsHiddenAC, ResetAC} from "./state/generalReducer";
-// import {IsHiddenAC, isHiddenReducer} from "./state/isHiddenReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {RootTypeState} from "./state/store";
 
@@ -19,7 +18,6 @@ function AppWithRedux() {
 
     let [valueInputMax, setValueInputMax] = useState<string>('')
     const [valueInputStart, setValueInputStart] = useState<string>('')
-    // const [isHidden, dispatchIsHidden] = useReducer(isHiddenReducer, true)
 
     useEffect(() => {
         let newCountStartString = localStorage.getItem('setValueInputStart')
@@ -39,11 +37,7 @@ function AppWithRedux() {
 
     let newCountString = localStorage.getItem('inputMax')
 
-    // let [count, setCount] = useState(0)
-    // let [count, dispatchCount] = useReducer(countReducer, 0)
-
     const countIncrHandlerCB = () => {
-        // setCount(count++)
         dispatch(IncrAC())
     }
 
@@ -54,12 +48,10 @@ function AppWithRedux() {
 
     const setSettingsCount = () => {
         dispatch(IsHiddenAC())
-        // setIsHidden(!isHidden)
         localStorage.setItem('setValueInputStart', JSON.stringify(valueInputStart))
         localStorage.setItem("inputMax", JSON.stringify(valueInputMax))
         let newValue = +valueInputStart
         dispatch(ResetAC(newValue))
-        // setCount(+valueInputStart)
     }
 
     return (
@@ -75,7 +67,7 @@ function AppWithRedux() {
                     <InputMax
                         title={'Max'}
                         valueInput={valueInputMax}
-                        setValueInput={setValueInputMax}
+                        setValueInputMax={setValueInputMax}
                         valueInputStart={valueInputStart}
                     />
                     <InputStart
@@ -89,18 +81,6 @@ function AppWithRedux() {
 
                 <div className={s.wrapBTN}>
                     {!isHidden && <>
-                        {/*<Button*/}
-                        {/*    size={"small"}*/}
-                        {/*    variant={"outlined"}*/}
-                        {/*    onClick={countIncrHandlerCB}*/}
-                        {/*>Incr</Button>*/}
-                        {/*<Button*/}
-                        {/*    disabled*/}
-                        {/*    size={"small"}*/}
-                        {/*    endIcon={<RestartAltIcon/>}*/}
-                        {/*    variant={"outlined"}*/}
-                        {/*    onClick={countResetHandlerCB}*/}
-                        {/*>Reset</Button>*/}
                         <SuperButton
                             disabled={+valueInputMax === count}
                             name={'Incr'}
@@ -112,12 +92,6 @@ function AppWithRedux() {
                             callBack={countResetHandlerCB}
                         />
                     </>}
-                    {/*<Button*/}
-                    {/*    endIcon={<TuneIcon/>}*/}
-                    {/*    size={"small"}*/}
-                    {/*    onClick={setSettingsCount}*/}
-                    {/*    variant={"contained"}*/}
-                    {/*>Set</Button>*/}
                     <SuperButton
                         disabled={+valueInputMax <= +valueInputStart}
                         name={'Set'}

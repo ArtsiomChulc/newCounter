@@ -5,7 +5,7 @@ import s from './InputMax.module.css'
 
 type SuperInputPropsType = {
     valueInput: string
-    setValueInput: (valueInput: string) => void
+    setValueInputMax: (valueInput: string) => void
     title: string
     valueInputStart: string
 }
@@ -17,7 +17,7 @@ export const InputMax = (props: SuperInputPropsType) => {
         if (+e.currentTarget.value < 0) {
             return
         } else {
-            props.setValueInput(e.currentTarget.value)
+            props.setValueInputMax(e.currentTarget.value)
         }
     }
 

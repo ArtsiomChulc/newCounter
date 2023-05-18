@@ -7,10 +7,6 @@ const rootReducer = combineReducers({
     count: generalReducer
 })
 
-// type RootTypeState = {
-//     count: number
-//     isHidden: boolean
-// }
 
 export type RootTypeState = ReturnType<typeof rootReducer>
 

@@ -59,7 +59,7 @@ function App() {
                     <InputMax
                         title={'Max'}
                         valueInput={valueInput}
-                        setValueInput={setValueInput}
+                        setValueInputMax={setValueInput}
                         valueInputStart={valueInputStart}
                     />
                     <InputStart

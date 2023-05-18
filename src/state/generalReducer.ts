@@ -1,14 +1,12 @@
 export type initialStateType = {
     count: number
     valueInputStart: number
-    valueInputMax: number
     isHidden: boolean
 }
 
 export const initialState: initialStateType = {
     count: 0,
     valueInputStart: 0,
-    valueInputMax: 0,
     isHidden: true
 }
 
